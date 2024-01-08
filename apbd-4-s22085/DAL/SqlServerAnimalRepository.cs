@@ -69,7 +69,7 @@ public class SqlServerAnimalRepository : IAnimalRepository
             command.Parameters.AddWithValue("id", id);
             // id is not being updated
             command.Parameters.AddWithValue("name", animal.Name);
-            command.Parameters.AddWithValue("description", animal.Description);
+            command.Parameters.AddWithValue("description", animal.Description ?? (object)DBNull.Value);
             command.Parameters.AddWithValue("category", animal.Category);
             command.Parameters.AddWithValue("area", animal.Area);
 
