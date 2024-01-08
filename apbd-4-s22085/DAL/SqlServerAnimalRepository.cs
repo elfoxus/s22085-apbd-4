@@ -49,7 +49,7 @@ public class SqlServerAnimalRepository : IAnimalRepository
             command.Connection = connection;
             command.CommandText = "INSERT INTO Animal VALUES (@name, @description, @category, @area)";
             command.Parameters.AddWithValue("name", animal.Name);
-            command.Parameters.AddWithValue("description", animal.Description);
+            command.Parameters.AddWithValue("description", animal.Description ?? (object)DBNull.Value);
             command.Parameters.AddWithValue("category", animal.Category);
             command.Parameters.AddWithValue("area", animal.Area);
 
